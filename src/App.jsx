@@ -1,15 +1,16 @@
 import "nes.css/css/nes.css";
 import './App.css'
+import Loading from './loading.jsx';
+import InitButton from './InitButton.jsx';
+import Content from './Content.jsx';
 
 function App() {
 
-  function button(e) {
-    // Will continue after wednesday exam
-  }
-
   return (
     <>
-      <button className='nes-btn'>Hellooo</button>
+      <Loading />
+      <InitButton />
+      <Content />
     </>
   )
 }
