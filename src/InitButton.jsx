@@ -1,4 +1,10 @@
-function InitButton() {
+import { useState } from "react";
+
+function InitButton({quotesCP, buttonText}) {
+
+    // let [button, setButton] = useState();
+
+    // console.log(quotesCP.splice(0,1))
 
     function initButtonFunc(e) {
         let reqButton = e.target;
@@ -14,7 +20,7 @@ function InitButton() {
     }
 
     return (
-        <button className='nes-btn' onClick={initButtonFunc}>Hellooo</button>
+        <button className='nes-btn' id="initButton" onClick={initButtonFunc}>{buttonText}</button>
     )
 }
 
