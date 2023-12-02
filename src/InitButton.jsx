@@ -16,7 +16,7 @@ function InitButton({quotesCP, buttonText}) {
             document.querySelector('.loading-container').style.opacity = '0';
             document.querySelector('.loader').className = "loader";
             document.querySelector('.content-container').style.display = "block"
-        }, 6010)
+        }, 1010)
     }
 
     return (
