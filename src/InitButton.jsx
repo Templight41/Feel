@@ -1,10 +1,4 @@
-import { useState } from "react";
-
-function InitButton({quotesCP, buttonText}) {
-
-    // let [button, setButton] = useState();
-
-    // console.log(quotesCP.splice(0,1))
+function InitButton({buttonText}) {
 
     function initButtonFunc(e) {
         let reqButton = e.target;

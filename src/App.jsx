@@ -57,11 +57,13 @@ let quotes = [
   }
 ]
 
-let newArr = quotes;
+let newArr = [];
 
-let prevIndexes = [];
+for(let i=0;i<quotes.length;i++) {
+  newArr.push(quotes[i]);
+}
+
 let currentIndex = Math.floor(Math.random()*newArr.length);
-console.log(currentIndex)
 
 function App() {
 
@@ -75,15 +77,18 @@ function App() {
 
 
     newArr.splice(currentIndex, 1)
-
     
     currentIndex = Math.floor(Math.random()*newArr.length);
     
     setCurrentQuote(newArr[currentIndex]);
 
-    if(newArr.length==2) {
-      return newArr = quotes;
+    if(newArr.length <= 1) {
+      let i=0;
+      for(i=0;i<quotes.length;i++) {
+        newArr.push(quotes[i]);
+      }
     }
+
   }
 
   return (

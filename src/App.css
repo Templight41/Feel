@@ -44,7 +44,7 @@ body {
 }
 
 .loader-animation {
-  animation: loading 6s;
+  animation: loading 8s;
   animation-fill-mode: forwards;
 }
 
@@ -89,7 +89,7 @@ body {
   0% {
     width: 0px;
   }
-  70% {
+  75% {
     width: 160px;
   }
   90% {
