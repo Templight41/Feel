@@ -1,14 +1,7 @@
 function Content({tryAgain, title, content}) {
 
-    let currentQuote;
-
-    function tryAgainButton(e) {
-        document.querySelector('#initButton').className = 'nes-btn';
-        document.querySelector('#initButton').disabled = false;
-        document.querySelector('.loader').className = "loader ";
-        document.querySelector('.content-container').style.display = "none";
-        
-    }
+    
+    
 
     return (
         <div className="nes-container is-rounded content-container">

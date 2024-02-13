@@ -24,7 +24,6 @@ body {
 .nes-container.loading-container {
   position: absolute;
   transform: translateY(-70px);
-  opacity: 0;
   padding: 14px 18px;
   background-color: rgb(175, 175, 175);
 }
@@ -41,11 +40,11 @@ body {
   height: 8px;
   margin: 0;
   background-color: rgb(52, 157, 255);
+  animation: loading 8s;
+  animation-fill-mode: forwards;
 }
 
 .loader-animation {
-  animation: loading 8s;
-  animation-fill-mode: forwards;
 }
 
 .nes-container.is-rounded {
@@ -57,10 +56,6 @@ body {
   padding: 8px 32px;
   background-color: antiquewhite;
   text-align: center;
-}
-
-.content-container {
-  display: none;
 }
 
 .content-container h3 {

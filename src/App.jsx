@@ -3,7 +3,7 @@ import './App.css'
 import Loading from './Loading.jsx';
 import InitButton from './InitButton.jsx';
 import Content from './Content.jsx';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 let quotes = [
@@ -68,12 +68,14 @@ let currentIndex = Math.floor(Math.random()*newArr.length);
 function App() {
 
   let [currentQuote, setCurrentQuote] = useState(newArr[currentIndex]);
+  let [loader, setLoader] = useState(false);
+  let [content, setContent] = useState(false);
+  let [button, setButton] = useState(true)
+
   
   function tryAgain() {
-    document.querySelector('#initButton').className = 'nes-btn';
-    document.querySelector('#initButton').disabled = false;
-    document.querySelector('.loader').className = "loader ";
-    document.querySelector('.content-container').style.display = "none";
+    setButton(!button)
+    setContent(!setContent)
 
 
     newArr.splice(currentIndex, 1)
@@ -88,16 +90,53 @@ function App() {
         newArr.push(quotes[i]);
       }
     }
-
   }
+
+
+  function initButtonFunc(e) {
+    setLoader(!loader)
+    let reqButton = e.target;
+    reqButton.className = 'nes-btn is-disabled';
+    reqButton.disabled = true;
+  }
+
 
   return (
     <>
-      <Loading />
-      <InitButton buttonText={currentQuote.buttonReq}/>
-      <Content tryAgain={tryAgain} title={currentQuote.title} content={currentQuote.content}/>
+      {(() => {
+        if (loader) {
+          return (
+            <Loading setLoader={setLoader} setContent={setContent} setButton={setButton}/>
+          )
+        }
+      })()}
+
+      {(() => {
+        if (button) {
+          return (
+            <InitButton buttonText={currentQuote.buttonReq}  setLoader={setLoader} initButtonFunc={initButtonFunc}/>
+          )
+        }
+      })()}
+
+      {(() => {
+        if (content) {
+          return (
+            <Content tryAgain={tryAgain} title={currentQuote.title} content={currentQuote.content}/>
+          )
+        }
+      })()}
+      
     </>
   )
 }
 
 export default App
+
+
+
+
+// document.querySelector('#initButton').className = 'nes-btn';
+// document.querySelector('#initButton').disabled = false;
+// document.querySelector('.loader').className = "loader ";
+// document.querySelector('.content-container').style.display = "none";
